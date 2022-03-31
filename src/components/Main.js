@@ -5,7 +5,7 @@ function Main(props) {
   //state
   const [foaming, setFoaming] = useState();
   //api url
-  const URL = "https://fm-foambackend.herokuapp.com/foam";
+  const URL = "https://fm-foambackend.herokuapp.com/foam/";
 
   const getFoam = async () => {
     const response = await fetch(URL);

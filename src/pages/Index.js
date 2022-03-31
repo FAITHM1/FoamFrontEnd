@@ -10,11 +10,11 @@ function Index(props) {
     foam: "",
     __v: "",
   });
-  //handle change functions 
+  //handle change functions
   const handleChange = (event) => {
     const newState = { ...editFoam };
     newState[event.target.name] = event.target.value;
-
+    console.log(editFoam, newState);
     setEditFoam(newState);
   };
 
@@ -71,7 +71,7 @@ function Index(props) {
           <div class="row">
             {props.foaming.map((x) => {
               if (x.foam === "yes" && content.value === "foaming") {
-                console.log(x.foam);
+                
                 return (
                   <div key={x._id} class="col-lg">
                     <div>
@@ -116,6 +116,7 @@ function Index(props) {
                         <select
                           name="foam"
                           value={x.foam}
+                          onChange={handleChange}
                           onClick={() => {
                             props.updateFoaming(editFoam, x._id);
                           }}
@@ -137,7 +138,6 @@ function Index(props) {
                 ""
               ) {
                 if (x.foam !== "no") {
-                  
                   return (
                     <div key={x._id} class="col-lg">
                       <div>
